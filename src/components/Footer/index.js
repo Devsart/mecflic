@@ -1,12 +1,13 @@
 import React from 'react';
 import { FooterBase } from './styles';
+import { Link } from 'react-router-dom';
 
 function Footer() {
   return (
     <FooterBase>
-      <a href="https://www.alura.com.br/">
+      <Link to="Home">
         <img src="https://fontmeme.com/permalink/200728/a81169feb5b9764457468767301a528c.png" alt="Logo MecFlix" />
-      </a>
+      </Link>
       <p>
         Feito com amor e carinho por 
         {' '}

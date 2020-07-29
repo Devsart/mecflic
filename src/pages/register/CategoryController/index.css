@@ -1,0 +1,38 @@
+.input{
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 42.53%;
+    bottom: 0%;
+/* --color-gray-medium */
+    background: #53585D;
+    border-radius: 4px;
+}
+
+.activeborder{
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 95.4%;
+    bottom: 0%;
+/* --color-primary-medium */
+    background: #2A7AE4;
+    border-radius: 0px 0px 4px 4px;
+}
+
+.title{
+    position: absolute;
+    left: 0.66%;
+    right: -0.66%;
+    top: 40.23%;
+    bottom: 22.99%;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 14px;
+    display: flex;
+    align-items: center;
+    /* --color-gray-medium */
+    color: #E5E5E5;
+}
