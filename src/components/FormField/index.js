@@ -6,7 +6,7 @@ import styled, { css } from 'styled-components';
 const Label = styled.label`
   
   `;
-  Label.Text = styled.span`
+Label.Text = styled.span`
   color: #E5E5E5;
   height: 57px;
   position: absolute; 
@@ -24,7 +24,7 @@ const Label = styled.label`
   transition: .1s ease-in-out;
   `;
 
-  const FormFieldWrapper = styled.div`
+const FormFieldWrapper = styled.div`
   position: relative;
   textarea {
     min-height: 150px;
@@ -34,7 +34,7 @@ const Label = styled.label`
   }
   `;
 
-  const Input = styled.input`
+const Input = styled.input`
   background: #53585D;
   color: #F5F5F5;
   display: block;
@@ -54,7 +54,7 @@ const Label = styled.label`
   border-radius: 4px;
   transition: border-color .3s;
   
-  &:focus {
+  &:focus:not([type='color']) {
     border-bottom-color: var(--mecolor);
   }
   &:focus:not([type='color']) + ${Label.Text} {

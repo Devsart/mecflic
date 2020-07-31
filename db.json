@@ -1,0 +1,21 @@
+{
+    "categorias": [
+      {
+        "id": 1,
+        "titulo": "Sartinho",
+        "cor": "(--var mecolor)",
+        "link_extra": {
+          "text": "Canal do Sartinho",
+          "url": "https://www.youtube.com/channel/UC6TolmHa5yZlvFDHQnVQMaw"
+        }
+      }
+     ],
+    "videos": [
+      {
+        "id": 1,
+        "categoriaId": 1,
+        "titulo": "Abraço Apertado",
+        "url": "https://www.youtube.com/watch?v=XlA5gv81L3Y"
+      }
+    ]
+  }
