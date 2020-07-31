@@ -1,88 +1,99 @@
+/* eslint-disable linebreak-style */
 import React, { useState } from 'react';
-import PageDefault from '../../../components/PageDefault';
 import { Link } from 'react-router-dom';
+import PageDefault from '../../../components/PageDefault';
+import FormField from '../../../components/FormField';
+import Button from '../../../components/Button';
 
-function CategoryController(){
-    const [cat, setCat] = useState(['Filmes'])
-    const [catName, setCatname] = useState('Filmes');
-    const [color, setColor] = useState('')
-    const [description, setDescription] = useState("");
-  /*  const InitialValues = {
-      name: '',
-      description: '',
-      color: '#000'
-    }
-  */
+function CategoryController() {
+  const [cat, setCat] = useState(['Filmes']);
 
-    return(
-      <PageDefault>
-        <h1>Cadastro de Categoria: {catName}</h1>
-        <form onSubmit={function handleSubmit(e){
-          e.preventDefault();
-          console.log('Enviado!');
-          setCat([
-            ...cat,
-            catName
-          ]);
-        }}>
-            <div>
-              <label>
-                Nome da Categoria:
-                  <input
-                    type="text"
-                    value = {catName}
-                    onChange = {function handleInputChange(event){
-                      console.log(catName);
-                      setCatname(event.target.value);
-                    }}
-                  />
-              </label>
-            </div>
-            <div>
+  const InitialValues = {
+    name: '',
+    description: '',
+    color: '#000000',
+  };
+
+  const [values, setValues] = useState(InitialValues);
+
+  function setValue(field, newvalue) {
+    setValues({
+      ...values,
+      [field]: newvalue,
+    });
+  }
+
+  function handleChange(event) {
+    setValue(event.target.getAttribute('name'),
+      event.target.value);
+  }
+
+  return (
+    <PageDefault>
+      <h1>
+        Cadastro de Categoria:
+        {values.name}
+      </h1>
+      <form onSubmit={function handleSubmit(e) {
+        e.preventDefault();
+        console.log('Enviado!');
+        setCat([
+          ...cat,
+          values.name,
+        ]);
+      }}
+      >
+        <FormField
+          label="Nome da Categoria"
+          name="name"
+          type="text"
+          value={values.name}
+          onChange={handleChange}
+          className="input"
+        />
+
+        <FormField
+          label="Descrição: "
+          name="description"
+          type="textarea"
+          value={values.description}
+          onChange={handleChange}
+        />
+        {/* <div>
               <label>
                 Descrição:
                   <textarea
+                    name="description"
                     type="text"
-                    value = {description}
-                    onChange = {function handleTextChange(event){
-                      console.log(description);
-                      setDescription(event.target.value);
-                    }}
+                    value = {values.description}
+                    onChange = {handleChange}
                   />
               </label>
-            </div>
-            <div>
-              <label>
-                Cor:
-                  <input
-                    type="color"
-                    value = {color}
-                    onChange = {function handleColorChange(event){
-                      console.log(color);
-                      setColor(event.target.value);
-                    }}
-                  />
-              </label>
-            </div>
-          <button>
-            Cadastrar
-          </button>
-        </form>
-        <ul>
-            {cat.map((cat)=>{
-              return(
-                <li key={cat}>
-                  {cat}
-                </li>
-              )
-            })}
-          </ul>
+            </div> */}
+        <FormField
+          label="Cor: "
+          name="color"
+          type="color"
+          value={values.color}
+          onChange={handleChange}
+        />
+        <Button>
+          Cadastrar
+        </Button>
+      </form>
+      <ul>
+        {cat.map((cat, i) => (
+          <li key={`${cat}${i}`}>
+            {cat}
+          </li>
+        ))}
+      </ul>
 
-        <Link to="/">
-            Ir para Página Principal
-        </Link>
-      </PageDefault>
-    )
-  }
-  
-  export default CategoryController;
+      <Link to="/">
+        Ir para Página Principal
+      </Link>
+    </PageDefault>
+  );
+}
+
+export default CategoryController;

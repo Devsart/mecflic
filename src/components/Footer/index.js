@@ -1,6 +1,6 @@
 import React from 'react';
-import { FooterBase } from './styles';
 import { Link } from 'react-router-dom';
+import { FooterBase } from './styles';
 
 function Footer() {
   return (
