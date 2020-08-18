@@ -13,7 +13,9 @@ function CategoryController() {
   const [cat, setCat] = useState(['Filmes']);
 
   useEffect(() => {
-    const URL = 'http://localhost:8080/categorias';
+    const URL = window.location.hostname.includes('localhost')
+      ? 'http://localhost:8080/categorias'
+      : 'https://mecflix.herokuapp.com/categorias';
     fetch(URL)
       .then(async (response) => {
         const jsonres = await response.json();
@@ -85,6 +87,13 @@ function CategoryController() {
           Cadastrar
         </Button>
       </form>
+
+      {cat.length === 0 && (
+        <div>
+          Carregando...
+        </div>
+      )}
+
       <ul>
         {cat.map((category, i) => (
           // eslint-disable-next-line react/no-array-index-key
