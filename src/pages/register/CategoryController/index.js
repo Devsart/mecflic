@@ -1,12 +1,27 @@
 /* eslint-disable linebreak-style */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PageDefault from '../../../components/PageDefault';
 import FormField from '../../../components/FormField';
 import Button from '../../../components/Button';
 
 function CategoryController() {
+  //  useEffect tutorial:
+  //  What will happen? We put into the { }.
+  //  When will it happen? we put it into the [ ].
+
   const [cat, setCat] = useState(['Filmes']);
+
+  useEffect(() => {
+    const URL = 'http://localhost:8080/categorias';
+    fetch(URL)
+      .then(async (response) => {
+        const jsonres = await response.json();
+        setCat([
+          ...jsonres,
+        ]);
+      });
+  }, []);
 
   const InitialValues = {
     name: '',
@@ -32,11 +47,11 @@ function CategoryController() {
     <PageDefault>
       <h1>
         Cadastro de Categoria:
+        {' '}
         {values.name}
       </h1>
       <form onSubmit={function handleSubmit(e) {
         e.preventDefault();
-        console.log('Enviado!');
         setCat([
           ...cat,
           values.name,
@@ -59,17 +74,6 @@ function CategoryController() {
           value={values.description}
           onChange={handleChange}
         />
-        {/* <div>
-              <label>
-                Descrição:
-                  <textarea
-                    name="description"
-                    type="text"
-                    value = {values.description}
-                    onChange = {handleChange}
-                  />
-              </label>
-            </div> */}
         <FormField
           label="Cor: "
           name="color"
@@ -82,9 +86,10 @@ function CategoryController() {
         </Button>
       </form>
       <ul>
-        {cat.map((cat, i) => (
-          <li key={`${cat}${i}`}>
-            {cat}
+        {cat.map((category, i) => (
+          // eslint-disable-next-line react/no-array-index-key
+          <li key={`${category}${i}`}>
+            {category.titulo}
           </li>
         ))}
       </ul>

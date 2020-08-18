@@ -12,10 +12,10 @@ ReactDOM.render(
       <Route exact path="/" component={Home} />
       <Route exact path="/cadastro/video" component={VideoController} />
       <Route exact path="/cadastro/categoria" component={CategoryController} />
-      <Route component={()=>(<div>Errrroooooou</div>)}/>
+      <Route component={() => (<div>Errrroooooou</div>)} />
     </Switch>
   </BrowserRouter>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );
 
 // Learn more about service workers: https://bit.ly/CRA-PWA
