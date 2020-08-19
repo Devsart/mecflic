@@ -12,7 +12,7 @@ ReactDOM.render(
       <Route exact path="/" component={Home} />
       <Route exact path="/cadastro/video" component={VideoController} />
       <Route exact path="/cadastro/categoria" component={CategoryController} />
-      <Route component={() => (<div>Errrroooooou</div>)} />
+      <Route component={() => (<div><h1>404 Forbidden. Page Not found.</h1></div>)} />
     </Switch>
   </BrowserRouter>,
   document.getElementById('root'),

@@ -5,7 +5,7 @@ import { FooterBase } from './styles';
 function Footer() {
   return (
     <FooterBase>
-      <Link to="Home">
+      <Link to="/">
         <img src="https://fontmeme.com/permalink/200728/a81169feb5b9764457468767301a528c.png" alt="Logo MecFlix" />
       </Link>
       <p>
